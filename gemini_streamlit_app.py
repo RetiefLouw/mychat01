@@ -3,9 +3,11 @@ import streamlit as st
 import os
 import google.generativeai as ggi
 
-load_dotenv(".env")
+# load_dotenv(".env")
+# fetcheed_api_key = os.getenv("API_KEY")
 
-fetcheed_api_key = os.getenv("API_KEY")
+fetcheed_api_key = st.secrets["API_KEY"]
+
 ggi.configure(api_key = fetcheed_api_key)
 
 model = ggi.GenerativeModel("gemini-pro") 
